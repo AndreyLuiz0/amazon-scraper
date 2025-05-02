@@ -1,24 +1,71 @@
-# Amazon Product Scraper
+Este projeto é uma aplicação de scraping simples que permite buscar produtos na Amazon e exibir informações sobre eles, como título, classificação, número de avaliações e imagem.
 
-## Overview
-A simple web app to scrape Amazon product listings from the first page of search results for a given keyword.
+Utilizado
+Backend: Node.js, Express, Axios, JSDOM
 
-## Backend (Bun)
-- Uses Express for API routing
-- Axios to fetch Amazon page
-- JSDOM to parse HTML and extract product data
+Frontend: Vite, HTML, CSS, JavaScript Vanilla
 
-## Frontend
-- HTML/CSS/JS using Vite or just direct browser usage
-- Input for keyword and results display
+CORS: Permite que o frontend se comunique com o backend localmente
 
-## Setup Instructions
+Para Rodar o Projeto:
+1. Clonar o Repositório
+bash
+Copiar
+Editar
+git clone <link-do-repositorio>
+cd amazon-scraper
 
-### Prerequisites
-- [Bun](https://bun.sh/) installed
+3. Backend (Node.js)
+2.1 Instalar Dependências
 
-### Run the Backend
-```bash
+Copiar
+Editar
 cd backend
-bun install express axios jsdom
-bun run index.js
+npm install
+2.2 Rodar o Backend
+
+Copiar
+Editar
+npm start
+O servidor backend irá rodar na porta 3000. Você verá uma mensagem como:
+
+Copiar
+Editar
+Server running at http://localhost:3000
+
+3. Frontend (Vite)
+3.1 Instalar Dependências:
+   
+Copiar
+Editar
+cd frontend
+npm install
+
+3.2 Rodar o Frontend:
+
+Copiar
+Editar
+npm run dev
+O servidor frontend irá rodar na porta 5173 (ou outra, caso essa já esteja em uso).
+
+4. Como Usar
+Acesse http://localhost:5173 no seu navegador.
+
+Insira um termo de pesquisa no campo de texto.
+
+Clique no botão "Search" para ver os resultados da pesquisa.
+
+O frontend irá chamar o backend, que irá fazer o scraping da Amazon e exibir os produtos encontrados.
+
+Proxy de API (Vite)
+O frontend foi configurado para redirecionar automaticamente as requisições para a API do backend, utilizando um proxy no arquivo vite.config.js. Significa que você pode fazer requisições para /api/scrape?keyword=... sem precisar se preocupar com o localhost:3000.
+
+Obs
+Certifique-se de que o backend está rodando corretamente antes de fazer as requisições.
+
+Se o frontend não conseguir se comunicar com o backend, verifique se o CORS está corretamente configurado no servidor.
+
+Possíveis Erros
+Failed to Fetch: Verifique se ambos os servidores (frontend e backend) estão rodando corretamente. Certifique-se também de que o CORS está configurado.
+
+CORS Policy Blocked: Isso ocorre quando o navegador bloqueia a requisição devido a uma política de segurança. Se isso ocorrer, verifique a configuração do proxy ou do CORS.
